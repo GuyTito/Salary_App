@@ -7,9 +7,9 @@ Below is the picture of the question
 
 
 ## How it works
-* Upload data of the staff in csv format
+* Upload data of the staff in csv format. The _staff data.csv_ file is a sample data provided in the question 
 * Results are presented as answers to the questions
-* You can download the results in csv format
+* You can download the results in csv format. The finished file (prefixed with "[finished]") is in the _csvDir_ folder together with the uploaded file
 
 
 ## Suggestions

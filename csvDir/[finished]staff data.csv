@@ -1,0 +1,22 @@
+staff ,rank ,hours worked ,children, gross pay, income tax, nhil, district tax, getfund, net pay 
+john, senior, 65, 3, GH₵3875, GH₵581.25, GH₵38.75, GH₵116.25, GH₵0, GH₵3138.75
+rose, senior, 42, 0, GH₵2150, GH₵322.5, GH₵21.5, GH₵64.5, GH₵0, GH₵1741.5
+Ekya, junior, 27, 6, GH₵945, GH₵141.75, GH₵9.45, GH₵28.35, GH₵3, GH₵762.45
+Peter, junior, 32, 5, GH₵1120, GH₵168, GH₵11.2, GH₵33.6, GH₵2, GH₵905.2
+brahitt, junior, 80, 10, GH₵3150, GH₵472.5, GH₵31.5, GH₵94.5, GH₵7, GH₵2544.5
+Isaac, junior, 12, 1, GH₵420, GH₵63, GH₵4.2, GH₵12.6, GH₵0, GH₵340.2
+cynthia, senior, 45, 2, GH₵2375, GH₵356.25, GH₵23.75, GH₵71.25, GH₵0, GH₵1923.75
+james, junior, 25, 2, GH₵875, GH₵131.25, GH₵8.75, GH₵26.25, GH₵0, GH₵708.75
+Kwaku, junior, 33, 3, GH₵1155, GH₵173.25, GH₵11.55, GH₵34.65, GH₵0, GH₵935.55
+george, senior, 62, 2, GH₵3650, GH₵547.5, GH₵36.5, GH₵109.5, GH₵0, GH₵2956.5
+michael, junior, 23, 6, GH₵805, GH₵120.75, GH₵8.05, GH₵24.15, GH₵3, GH₵649.05
+emmanuel, senior, 45, 6, GH₵2375, GH₵356.25, GH₵23.75, GH₵71.25, GH₵3, GH₵1920.75
+stephen, senior, 56, 5, GH₵3200, GH₵480, GH₵32, GH₵96, GH₵2, GH₵2590
+alfred, senior, 34, 3, GH₵1700, GH₵255, GH₵17, GH₵51, GH₵0, GH₵1377
+charles, junior, 81, 6, GH₵3193.75, GH₵479.0625, GH₵31.9375, GH₵95.8125, GH₵3, GH₵2583.9375
+
+Number of employees: 15
+Total Gross Pay paid to all employees: GH₵30988.75
+Total Net Pay paid to all employees: GH₵25077.8875
+Average Net Pay of all employees: GH₵1671.8591666667
+Total deductions paid by all employees: GH₵5910.8625

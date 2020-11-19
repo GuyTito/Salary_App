@@ -14,4 +14,4 @@ Below is the picture of the question
 
 
 ## Suggestions
-Suggestions text file contains ideas which I will likely add to the project as time goes on
+Suggestions text file contains ideas which will be added to the project as time goes on. When an idea is implemented and added to the project, that statement(idea) is prefixed with "[DONE]".

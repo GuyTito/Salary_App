@@ -157,6 +157,8 @@ if(isset($_POST["upload"]) && isset($_FILES['uploadedFile'])) {
 		while(($data = fgetcsv($file, 100, ",")) !== false){
 			if (!is_numeric($data[2])) continue; //skip if there is heading in uploaded file
 			$count++;
+			$data[2] = floatval($data[2]); //handle hours given in decimals
+			$data[3] = intval($data[3]); //make number of children is not decimal
 			$resultTxt = $data[0] . ", " . $data[1] . ", " . $data[2] . ", " . $data[3] . ", GH₵" . calcGrossPay($data[1], $data[2]) . ", GH₵" . calcIncomeTax($data[1], $data[2]) . ", GH₵" . calcNHIL($data[1], $data[2]) . ", GH₵" . calcDistrictTax($data[1], $data[2]) . ", GH₵" . calcGetFund($data[3]) . ", GH₵" . calcNetPay($data[1], $data[2], $data[3])."\n";
 			echo $resultTxt;
 			fwrite($finishedFile, $resultTxt);

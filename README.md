@@ -3,6 +3,7 @@ A salary app project which is an answer to a question posted on dev group on Wha
 
 
 Below is the picture of the question
+
 ![Question](Salary_App_Question.png)
 
 

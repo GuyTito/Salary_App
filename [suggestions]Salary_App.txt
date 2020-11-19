@@ -1,8 +1,4 @@
-push to github
-
-how to update code on github
-
-add floatval to inputed hours worked
+[DONE] add floatval to inputed hours worked
 
 Add print functionality
 

@@ -1,5 +1,6 @@
 # Salary_App
-A salary app project which is an answer to a question posted on dev group on WhatsApp
+A salary app project which is an answer to a question posted on dev group on WhatsApp.
+This is my php implementation though was asked to be implemented in Java
 
 
 Below is the picture of the question

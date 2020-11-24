@@ -85,7 +85,6 @@ function calcNetPay($rank, $hoursWorked, $children): float {
 <!-- <div class="container"> -->
 <h1>Welcome to the Staff Salary App</h1>
 
-<div>
 <form method="POST" enctype="multipart/form-data">
 	<p>Upload csv file of staff data in the following format:</p>
 	<p>csv format: <strong>staff,rank,hours worked,children</strong></p>
@@ -93,10 +92,35 @@ function calcNetPay($rank, $hoursWorked, $children): float {
 	<input type="file" name="uploadedFile" id="uploadedFile"><br>
 	<input type="submit" name="upload" value="Upload"><br><br>
 </form>
-
+<form method="POST">
+	<p>Fill the form to calculate your salary</p>
+	<input type="text" name="name" id="name" placeholder="Name" required><br>
+	<label for="rank">Select rank:</label>
+	<select name="rank" id="rank" placeholder="rank" required>
+	    <option value="junior">junior</option>
+	    <option value="senior">senior</option>
+  	</select><br>
+	<input type="number" step="any" name="hoursWorked" id="hoursWorked" placeholder="Hours worked" required><br>
+	<input type="number" step="any" name="children" id="children" placeholder="Children" required><br>
+	<input type="submit" name="calculate" value="Calculate"><br><br>
+</form>
 
 
 <?php 
+
+function showResults($name,$rank,$hoursWorked,$children){
+	$hoursWorked = floatval($hoursWorked); //handle hours given in decimals
+	$children = intval($children); //make sure number of children is not decimal
+	$resultTxt = $name . ", " . $rank . ", " . $hoursWorked."hrs" . ", " . $children . ", GH₵" . calcGrossPay($rank, $hoursWorked) . ", GH₵" . calcIncomeTax($rank, $hoursWorked) . ", GH₵" . calcNHIL($rank, $hoursWorked) . ", GH₵" . calcDistrictTax($rank, $hoursWorked) . ", GH₵" . calcGetFund($children) . ", GH₵" . calcNetPay($rank, $hoursWorked, $children)."\n";
+	return $resultTxt;
+}
+
+//to display heading of results
+$heading = "<strong>staff ,rank ,hours worked ,children, gross pay, income tax, nhil, district tax, getfund, net pay \n</strong>";
+
+
+
+
 //check if file is uploaded
 if(isset($_POST["upload"]) && isset($_FILES['uploadedFile'])) {
 	$fileName = basename($_FILES["uploadedFile"]["name"]);
@@ -149,17 +173,14 @@ if(isset($_POST["upload"]) && isset($_FILES['uploadedFile'])) {
 	$totalDeductions = 0;
 	$count = 0;
 	if (($file = fopen($target_file,"r")) !== false) {
-		$heading = "staff ,rank ,hours worked ,children, gross pay, income tax, nhil, district tax, getfund, net pay \n";
 		echo "<p>RESULTS: <em>" .  $fileName . "</em></p>";
-		echo '<pre>';
 		echo $heading;
+		echo '<pre>';
 		fwrite($finishedFile, $heading);
 		while(($data = fgetcsv($file, 100, ",")) !== false){
 			if (!is_numeric($data[2])) continue; //skip if there is heading in uploaded file
 			$count++;
-			$data[2] = floatval($data[2]); //handle hours given in decimals
-			$data[3] = intval($data[3]); //make number of children is not decimal
-			$resultTxt = $data[0] . ", " . $data[1] . ", " . $data[2] . ", " . $data[3] . ", GH₵" . calcGrossPay($data[1], $data[2]) . ", GH₵" . calcIncomeTax($data[1], $data[2]) . ", GH₵" . calcNHIL($data[1], $data[2]) . ", GH₵" . calcDistrictTax($data[1], $data[2]) . ", GH₵" . calcGetFund($data[3]) . ", GH₵" . calcNetPay($data[1], $data[2], $data[3])."\n";
+			$resultTxt = showResults($data[0],$data[1],$data[2],$data[3]);
 			echo $resultTxt;
 			fwrite($finishedFile, $resultTxt);
 			$totalGrossPay += calcGrossPay($data[1], $data[2]);
@@ -183,8 +204,20 @@ if(isset($_POST["upload"]) && isset($_FILES['uploadedFile'])) {
 	
 }
 
-
-
-
+if (isset($_POST['calculate'])) {
+	//make sure all fields are filled
+	if(count(array_filter($_POST)) != count($_POST)){
+		echo "All fields are required!";
+		return;
+	}
+	$resultTxt = showResults($_POST['name'],$_POST['rank'],$_POST['hoursWorked'],$_POST['children']);
+	echo "<p>RESULTS:</p>";
+	echo $heading;
+	echo '<pre>';
+	echo $resultTxt;
+}
 
 ?>
+
+</body>
+</html>

@@ -4,8 +4,9 @@ Add print functionality
 
 add fields so that individual staff can enter data and check calculations
 
-add description of the code as comment above the code
-
 validate csv file (check if each line in the uploaded file follows the allowed format on how the data should be presented)
 
+use error log to prevent original errors from showing on the app
+
 tabulate the results with <table></table>
+

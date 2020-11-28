@@ -219,5 +219,9 @@ if (isset($_POST['calculate'])) {
 
 ?>
 
+<script>
+	//prevent resubmission dialog
+	window.history.replaceState(null, null, window.location.href);
+</script>
 </body>
 </html>
